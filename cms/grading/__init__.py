@@ -312,7 +312,7 @@ def get_evaluation_commands(language, executable_filename):
         command = ["/usr/bin/php5", executable_filename]
         commands.append(command)
     elif language == LANG_SCHEME:
-        command = ["racket", executable_filename]
+        command = ["/usr/bin/racket", executable_filename]
         commands.append(command)
     else:
         raise ValueError("Unknown language %s." % language)
