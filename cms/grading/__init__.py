@@ -39,7 +39,7 @@ from sqlalchemy.orm import joinedload
 
 from cms import config, \
     LANG_C, LANG_CPP, LANG_PASCAL, LANG_PYTHON, LANG_PHP, LANG_JAVA, \
-    LANG_HS, SCORE_MODE_MAX
+    LANG_HS, LANG_SCHEME, SCORE_MODE_MAX
 from cms.db import Submission
 from cms.grading.Sandbox import Sandbox
 
@@ -279,6 +279,8 @@ def get_compilation_commands(language, source_filenames, executable_filename,
                              capitalize(source)])
         commands.append(["/usr/bin/ghc", "-static", "-O2", "-Wall", "-o",
                          executable_filename, source_filenames[0]])
+    elif language == LANG_SCHEME:
+        pass
     else:
         raise ValueError("Unknown language %s." % language)
     return commands
@@ -308,6 +310,9 @@ def get_evaluation_commands(language, executable_filename):
         commands.append(command)
     elif language == LANG_PHP:
         command = ["/usr/bin/php5", executable_filename]
+        commands.append(command)
+    elif language == LANG_SCHEME:
+        command = ["racket", executable_filename]
         commands.append(command)
     else:
         raise ValueError("Unknown language %s." % language)

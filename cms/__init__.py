@@ -67,6 +67,7 @@ LANG_PYTHON = "py"
 LANG_PHP = "php"
 LANG_JAVA = "java"
 LANG_HS = "hs"
+LANG_SCHEME = "scm"
 
 LANGUAGE_NAMES = {
     LANG_C: "C",
@@ -76,6 +77,7 @@ LANGUAGE_NAMES = {
     LANG_PHP: "PHP",
     LANG_JAVA: "Java",
     LANG_HS: "Haskell",
+    LANG_SCHEME: "Scheme"
 }
 
 LANGUAGES = [
@@ -85,10 +87,11 @@ LANGUAGES = [
     LANG_PYTHON,
     LANG_PHP,
     LANG_JAVA,
-    LANG_HS
+    LANG_HS,
+    LANG_SCHEME
 ]
 
-DEFAULT_LANGUAGES = [LANG_C, LANG_CPP, LANG_PASCAL]
+DEFAULT_LANGUAGES = [LANG_C, LANG_CPP, LANG_PASCAL, LANG_SCHEME]
 
 # A reference for extension-based automatic language detection.
 # (It's more difficult with headers because ".h" is ambiguous.)
@@ -103,7 +106,8 @@ SOURCE_EXT_TO_LANGUAGE_MAP = {
     ".py": LANG_PYTHON,
     ".php": LANG_PHP,
     ".java": LANG_JAVA,
-    ".hs": LANG_HS
+    ".hs": LANG_HS,
+    ".scm": LANG_SCHEME
 }
 
 # Our preferred source file and header file extension for each language.
