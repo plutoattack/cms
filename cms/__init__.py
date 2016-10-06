@@ -119,6 +119,7 @@ LANGUAGE_TO_SOURCE_EXT_MAP = {
     LANG_PHP: ".php",
     LANG_JAVA: ".java",
     LANG_HS: ".hs",
+    LANG_SCHEME: "scm"
 }
 LANGUAGE_TO_HEADER_EXT_MAP = {
     LANG_C: ".h",
