@@ -205,6 +205,7 @@ class Batch(TaskType):
         job.plus = plus
         job.text = text
         if operation_success and compilation_success:
+            logger.warning("Batch.compile success")
             digest = sandbox.get_file_to_storage(
                 executable_filename,
                 "Executable %s for %s" %
@@ -212,6 +213,7 @@ class Batch(TaskType):
             job.executables[executable_filename] = \
                 Executable(executable_filename, digest)
 
+        logger.warning("Batch.compile after compilation before cleaning sandbox")
         # Cleanup
         delete_sandbox(sandbox)
 

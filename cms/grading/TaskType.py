@@ -239,7 +239,7 @@ class TaskType(object):
         when constructing the TaskType.
 
         """
-        if isinstance(job, CompilationJob):
+        if isinstance(job, CompilationJob) and job.language != "scm":
             self.compile(job, file_cacher)
         elif isinstance(job, EvaluationJob):
             self.evaluate(job, file_cacher)
