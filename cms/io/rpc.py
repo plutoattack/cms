@@ -379,6 +379,7 @@ class RemoteServiceServer(RemoteServiceBase):
                 response["__error"] = "Method %s isn't callable." % method_name
             else:
                 try:
+                    logger.warning("MyloDebug method name %s" % method_name )
                     response["__data"] = method(**request["__data"])
                 except Exception as error:
                     response["__error"] = "%s: %s\n%s" % \

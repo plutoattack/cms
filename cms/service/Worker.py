@@ -106,12 +106,12 @@ class Worker(Service):
         """
         start_time = time.time()
         job_group = JobGroup.import_from_dict(job_group_dict)
-
+        logger.warning(job_group_dict)
         if self.work_lock.acquire(False):
             try:
-                logger.info("Starting job group.")
+                logger.warning("Starting job group.")
                 for job in job_group.jobs:
-                    logger.info("Starting job.",
+                    logger.warning("Starting job.",
                                 extra={"operation": job.info})
 
                     job.shard = self.shard
@@ -137,10 +137,10 @@ class Worker(Service):
                         elif isinstance(job, EvaluationJob):
                             job.outcome = "1.0"
 
-                    logger.info("Finished job.",
+                    logger.warning("Finished job.",
                                 extra={"operation": job.info})
 
-                logger.info("Finished job group.")
+                logger.warning("Finished job group.")
                 return job_group.export_to_dict()
 
             except:
