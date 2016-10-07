@@ -215,7 +215,7 @@ class Batch(TaskType):
 
         logger.warning("Batch.compile after compilation before cleaning sandbox")
         # Cleanup
-        delete_sandbox(sandbox)
+        # delete_sandbox(sandbox)
 
     def evaluate(self, job, file_cacher):
         """See TaskType.evaluate."""
