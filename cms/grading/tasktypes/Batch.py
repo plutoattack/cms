@@ -213,10 +213,10 @@ class Batch(TaskType):
             job.executables[executable_filename] = \
                 Executable(executable_filename, digest)
 
-        # logger.warning("Batch.compile after compilation before cleaning sandbox")
+        logger.warning("Batch.compile after compilation before cleaning sandbox")
         # Cleanup
-        logger.warning("no clean up")
-        # delete_sandbox(sandbox)
+        # logger.warning("no clean up")
+        delete_sandbox(sandbox)
 
     def evaluate(self, job, file_cacher):
         """See TaskType.evaluate."""
